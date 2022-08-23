@@ -11,8 +11,15 @@ function validar(u,p){
         if(u === dbUser && p === dbPassword){
             console.log('Bienvenido a tu cuenta');
         }
-        else{
-            console.log('Usuario o password incorrecto');
+        else if(u != dbUser){
+            let errorUser = document.getElementById('errorUsuario')
+            errorUser.classList.remove('hide')
+            errorUser.classList.remove('error')
+        }
+        else if(p != dbPassword){
+            let errorUser = document.getElementById('errorPassword')
+            errorUser.classList.remove('hide')
+            errorUser.classList.remove('error')
         }
     }
 }
@@ -23,3 +30,4 @@ formulario.addEventListener('submit', function(evento){
     let password = document.getElementById('password').value
     validar(usuario, password)
 })
+
